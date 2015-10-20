@@ -1,0 +1,16 @@
+/** compare congress style sheet  **/
+
+
+
+/** label,select{display:block} **/
+
+
+select[name="person1"]{border:3px solid #000;}
+
+.hidden{}
+/** hide second list of options from user until first selection has been made **/
+/** select[name="person2"]{display:none}  **/
+
+
+
+
