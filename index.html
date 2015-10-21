@@ -25,38 +25,31 @@
       <fieldset>
         <legend></legend>
         <label for="person1">Politician 01
-        <select id="person1" name="person1"></select></label>
+        <select id="person1" name="person1" class="person-selector"></select></label>
         <button class="show" type="button">Choose 2nd Politician</button>
         <label for="person2">Politician 02
-        <select id="person2" name="person2"></select></label>
+        <select id="person2" name="person2" class="person-selector"></select></label>
       </fieldset>
     </form>
-    <h1><b id="selected1"></b> <b class="hidden">vs.</b> <b id="selected2"></b></h1>
+    <h1><b id="selected1"></b> <b id="selected1bioid"></b></h1>
+    <h1><b id="selected2"></b></h1>
+    <div id="debug">selected option value</div>
   </body>
 
 
 <script>
 // show user what they have selected
-$("#person1")
-  .change(function() {
-    var str = "";
-    $("#person1 option:selected").each(function() {
-      str += $( this ).text() + " ";
-    });
-    $("#selected1").text( str );
 
 
-  })
-  .trigger("change");
-  
-$("#person2")
-  .change(function() {
-    var str = "";
-    $("#person2 option:selected").each(function() {
-      str += $( this ).text() + " ";
-    });
-    $("#selected2").text( str );
-  })
-  .trigger("change");
+var personSelectEvent = function() {
+  var str = "";
+  $(this).find('option:selected').each(function(i,v){
+    str += $(this).text() + " ";
+  });
+  $('#'+$(this).attr('id').replace('person', 'selected')).text( str );
+}
+$('.person-selector').change(personSelectEvent);
+
+
 </script>
 </html>
