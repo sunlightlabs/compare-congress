@@ -31,4 +31,16 @@ $(document).ready(function () {
             
         });
     });
+
+
+// get user selections
+// text value of selected
+var selection01 = $("#person1").find(":selected").text();
+var selection02 = $("#person2").find(":selected").text();
+// value attribute value of selected
+// $("#person1").val();
+// $("#person2").val();
+
+
+
 });

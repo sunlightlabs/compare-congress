@@ -4,7 +4,7 @@
     <title>Compare Congress</title>
     <link rel="stylesheet" href="compare-congress.css" />
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="javascript.js"></script>
+    <script src="compare-congress.jquery.js"></script>
   </head>
   <body>
     <h1>Compare Congress - Head-to-Head Voting Comparison</h1>
@@ -31,5 +31,32 @@
         <select id="person2" name="person2"></select></label>
       </fieldset>
     </form>
+    <h1><b id="selected1"></b> <b class="hidden">vs.</b> <b id="selected2"></b></h1>
   </body>
+
+
+<script>
+// show user what they have selected
+$("#person1")
+  .change(function() {
+    var str = "";
+    $("#person1 option:selected").each(function() {
+      str += $( this ).text() + " ";
+    });
+    $("#selected1").text( str );
+
+
+  })
+  .trigger("change");
+  
+$("#person2")
+  .change(function() {
+    var str = "";
+    $("#person2 option:selected").each(function() {
+      str += $( this ).text() + " ";
+    });
+    $("#selected2").text( str );
+  })
+  .trigger("change");
+</script>
 </html>
