@@ -33,7 +33,8 @@
     </form>
     <h1><b id="selected1"></b> <b id="selected1bioid"></b></h1>
     <h1><b id="selected2"></b></h1>
-    <div id="debug">selected option value</div>
+    <div id="selected-val-1"></div>
+    <div id="selected-val-2"></div>
   </body>
 
 
@@ -51,5 +52,26 @@ var personSelectEvent = function() {
 $('.person-selector').change(personSelectEvent);
 
 
+
+
+
+
+
+
+
+function displayVal1() {
+  var selectedVal1 = $("#person1").val();
+  $("#selected-val-1").html( "<b>Selected Option 1 val=\"\":</b> " + selectedVal1 );
+}
+$("#person1").change(displayVal1);
+displayVal1();
+
+
+function displayVal2() {
+  var selectedVal2 = $("#person2").val();
+  $("#selected-val-2").html( "<b>Selected Option 2 val=\"\":</b> " + selectedVal2 );
+}
+$("#person2").change(displayVal2);
+displayVal2();
 </script>
 </html>
