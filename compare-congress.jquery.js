@@ -42,5 +42,43 @@ $(document).ready(function () {
 // $("#person2").val();
 
 
+// show user what they have selected
+
+
+var personSelectEvent = function() {
+  var str = "";
+  $(this).find('option:selected').each(function(i,v){
+    str += $(this).text() + " ";
+  });
+  $('#'+$(this).attr('id').replace('person', 'selected')).text( str );
+}
+$('.person-selector').change(personSelectEvent);
+
+
+var apiURLStub1 = 'https://congress.api.sunlightfoundation.com/';
+var apiURLStubCommittees = 'committees?';
+var apiURLStubAPIKey = '&apikey=ebbe9f8409134303aab01479e8f1a42f';
+
+function displayVal1() {
+  var selectedVal1 = $("#person1").val();
+  $("#selected-val-1").html( "<b>Selected Option 1 val=\"\":</b> " + selectedVal1 );
+  var apiURLStubMemberID1 = 'member_ids=' + selectedVal1;
+  var apiURLCommittee1 = apiURLStub1 + apiURLStubCommittees + apiURLStubMemberID1 + apiURLStubAPIKey;
+  console.log(apiURLCommittee1);
+}
+$("#person1").change(displayVal1);
+displayVal1();
+
+
+
+function displayVal2() {
+  var selectedVal2 = $("#person2").val();
+  $("#selected-val-2").html( "<b>Selected Option 2 val=\"\":</b> " + selectedVal2 );
+  var apiURLStubMemberID2 = 'member_ids=' + selectedVal2;
+  var apiURLCommittee2 = apiURLStub1 + apiURLStubCommittees + apiURLStubMemberID2 + apiURLStubAPIKey;
+  console.log(apiURLCommittee2);
+}
+$("#person2").change(displayVal2);
+displayVal2();
 
 });

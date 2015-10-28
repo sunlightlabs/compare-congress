@@ -39,6 +39,13 @@
 
 
 <script>
-
+var sayHello = function (name) {
+  var text = 'Hello, ' + name;
+  return function () {
+    console.log(text);
+  };
+};
+var helloTodd = sayHello('Todd');
+helloTodd(); // will call the closure and log 'Hello, Todd'
 </script>
 </html>
