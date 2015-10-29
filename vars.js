@@ -15,6 +15,18 @@ congress.api.sunlightfoundation.com/legislators?apikey=ebbe9f8409134303aab01479e
 congress.api.sunlightfoundation.com/nominations?apikey=ebbe9f8409134303aab01479e8f1a42f
 congress.api.sunlightfoundation.com/votes?apikey=ebbe9f8409134303aab01479e8f1a42f
 congress.api.sunlightfoundation.com/upcoming_bills?apikey=ebbe9f8409134303aab01479e8f1a42f
+
+
+zipcodes to congressional districts url
+http://assets.sunlightfoundation.com/data/districts.csv
+legislator photos
+https://github.com/unitedstates/images
+
+
+
+pagination
+All results in the Congress API are paginated. Set per_page and page to control the page size and offset. The maximum per_page is 50.
+/floor_updates?chamber=house&per_page=50&page=3
 */
 
 
@@ -43,5 +55,5 @@ var apiURLStubAllPerPage = "per_page=all";
 
 var initialAPICall = apiURLStub1 + apiURLStubLegislators + apiURLStubAllPerPage + apiURLStubAPIKey;
 
-var apiCallCommittees = apiURLStub1 + apiURLStubCommittees + apiURLStubAPIKey;
+var apiCallCommittees = apiURLStub1 + apiURLStubCommittees + apiURLStubAllPerPage + apiURLStubAPIKey;
 // chamber, committee_id, name, parent_committee_id, subcommittee
