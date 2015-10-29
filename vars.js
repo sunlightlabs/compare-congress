@@ -55,5 +55,10 @@ var apiURLStubAllPerPage = "per_page=all";
 
 var initialAPICall = apiURLStub1 + apiURLStubLegislators + apiURLStubAllPerPage + apiURLStubAPIKey;
 
-var apiCallCommittees = apiURLStub1 + apiURLStubCommittees + apiURLStubAllPerPage + apiURLStubAPIKey;
+
 // chamber, committee_id, name, parent_committee_id, subcommittee
+var apiCallCommittees = apiURLStub1 + apiURLStubCommittees + apiURLStubAllPerPage + apiURLStubAPIKey;
+
+// legislative_day, bill_id, range, congress, chamber, source_type
+var apiCallUpcomingBills = apiURLStub1 + apiURLStubUpcomingBills+ apiURLStubAllPerPage + apiURLStubAPIKey;
+
