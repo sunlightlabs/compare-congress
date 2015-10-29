@@ -91,16 +91,30 @@ var personSelectEvent = function() {
 }
 $('.person-selector').change(personSelectEvent);
 
-
+var committeeTH = "<table><tr><th>Name</th><th>Chamber</th><th>Committee ID</th><th>Parent Committee</th><th>Subcommittee</th></tr></thead><tbody>";
+var tableClose = "</tbody></table>";
 
 function displayVal1() {
   var selectedVal1 = $("#person1").val();
   $("#selected-val-1").html( "<b>Selected Option 1 val=\"\":</b> " + selectedVal1 );
   var apiURLStubMemberID1 = 'member_ids=' + selectedVal1;
   var apiURLCommittee1 = apiURLStub1 + apiURLStubCommittees + apiURLStubMemberID1 + apiURLStubAPIKey;
-  console.log(apiURLCommittee1);
+  // console.log(apiURLCommittee1);
 
     $.getJSON(apiURLCommittee1, function (data) {
+      var jsonDataCommittee1 = data.results;
+      $("body").append(committeeTH);
+        $.each(jsonDataCommittee1, function(){
+           // $("ul").append("<li>Name: "+this['name']+"</li><li>Chamber: "+this['chamber']+"</li><li>Committee ID: "+this['committee_id']+"</li><li>Parent Committee ID: "+this['parent_committee_id']+"</li><li>Subcommittee: "+this['subcommittee']+"</li>");
+           $("body").append("<tr><td>"+this['name']+"</td><td>"+this['chamber']+"</td><td>"+this['committee_id']+"</td><td>"+this['parent_committee_id']+"</td><td>"+this['subcommittee']+"</td></tr>");
+     });
+        $("body").append(tableClose);
+
+
+
+
+
+
 
     });
 
@@ -122,7 +136,23 @@ function displayVal2() {
   $("#selected-val-2").html( "<b>Selected Option 2 val=\"\":</b> " + selectedVal2 );
   var apiURLStubMemberID2 = 'member_ids=' + selectedVal2;
   var apiURLCommittee2 = apiURLStub1 + apiURLStubCommittees + apiURLStubMemberID2 + apiURLStubAPIKey;
-  console.log(apiURLCommittee2);
+  // console.log(apiURLCommittee2);
+      $.getJSON(apiURLCommittee2, function (data) {
+      var jsonDataCommittee2 = data.results;
+      $("body").append(committeeTH);
+        $.each(jsonDataCommittee2, function(){
+           // $("ul").append("<li>Name: "+this['name']+"</li><li>Chamber: "+this['chamber']+"</li><li>Committee ID: "+this['committee_id']+"</li><li>Parent Committee ID: "+this['parent_committee_id']+"</li><li>Subcommittee: "+this['subcommittee']+"</li>");
+           $("body").append("<tr><td>"+this['name']+"</td><td>"+this['chamber']+"</td><td>"+this['committee_id']+"</td><td>"+this['parent_committee_id']+"</td><td>"+this['subcommittee']+"</td></tr>");
+     });
+        $("body").append(tableClose);
+
+
+
+
+
+
+
+    });
 }
 
 // don't need this at some point

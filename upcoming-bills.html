@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Upcoming Bills - Compare Congress</title>
+    <link rel="stylesheet" href="compare-congress.css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="vars.js"></script>
+    <!-- <script src="compare-congress.jquery.js"></script> -->
+  </head>
+  <body>
+    <h1>Upcoming Bills - Compare Congress</h1>
+    <ul>
+    </ul>
+    <table>
+      <thead><tr><th>Legislative Day</th><th>Bill ID</th><th>Range</th><th>Congress</th><th>Chamber</th><th>Source Type</th></tr></thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </body>
+
+
+<script>
+$(document).ready(function () {
+
+    $.getJSON(apiCallUpcomingBills, function (data) {
+      // console.log(apiCallUpcomingBills);
+        var jsonData = data.results;
+        $.each(jsonData, function(){
+           $("tbody").append("<tr><td>"+this['legislative_day']+"</td><td>"+this['bill_id']+"</td><td>"+this['range']+"</td><td>"+this['congress']+"</td><td>"+this['chamber']+"</td><td>"+this['source_type']+"</td></tr>");
+         });
+    });
+
+// show user what they have selected
+
+
+var personSelectEvent = function() {
+  var str = "";
+  $(this).find('option:selected').each(function(i,v){
+    str += $(this).text() + " ";
+  });
+  $('#'+$(this).attr('id').replace('person', 'selected')).text( str );
+}
+$('.person-selector').change(personSelectEvent);
+
+
+
+function displayVal1() {
+  var selectedVal1 = $("#person1").val();
+  $("#selected-val-1").html( "<b>Selected Option 1 val=\"\":</b> " + selectedVal1 );
+  var apiURLStubMemberID1 = 'member_ids=' + selectedVal1;
+  var apiURLCommittee1 = apiURLStub1 + apiURLStubCommittees + apiURLStubMemberID1 + apiURLStubAPIKey;
+ // console.log(apiURLCommittee1);
+
+    $.getJSON(apiURLCommittee1, function (data) {
+
+    });
+
+
+
+
+}
+
+
+
+// don't need this at some point
+$("#person1").change(displayVal1);
+displayVal1();
+
+
+
+function displayVal2() {
+  var selectedVal2 = $("#person2").val();
+  $("#selected-val-2").html( "<b>Selected Option 2 val=\"\":</b> " + selectedVal2 );
+  var apiURLStubMemberID2 = 'member_ids=' + selectedVal2;
+  var apiURLCommittee2 = apiURLStub1 + apiURLStubCommittees + apiURLStubMemberID2 + apiURLStubAPIKey;
+  //console.log(apiURLCommittee2);
+}
+
+// don't need this at some point
+$("#person2").change(displayVal2);
+displayVal2();
+
+});
+</script>
+</html>
