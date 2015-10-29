@@ -4,6 +4,7 @@
     <title>Committees - Compare Congress</title>
     <link rel="stylesheet" href="compare-congress.css" />
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="vars.js"></script>
     <!-- <script src="compare-congress.jquery.js"></script> -->
   </head>
   <body>
@@ -15,32 +16,10 @@
 
 <script>
 $(document).ready(function () {
-var apiURLStub1 = 'https://congress.api.sunlightfoundation.com/';
-var apiURLStubAPIKey = '&apikey=ebbe9f8409134303aab01479e8f1a42f';
-
-var apiURLStubAmendments = "amendments?";
-var apiURLStubBills = "bills?";
-var apiURLStubBillsSearch = "bills/search?";
-var apiURLStubCommittees = 'committees?';
-var apiURLStubDistrictsLocate = "districts/locate?";
-var apiURLStubFloorUpdates = "floor_updates?";
-var apiURLStubHearingsDCFalse = "hearings?dc=false?";
-var apiURLStubHearingsDCTrue = "hearings?dc=true?";
-var apiURLStubHearingsDCNull = "hearings?dc=null?";
-var apiURLStubLegislators = "legislators?";
-var apiURLStubLegislatorsLocate = "legislators/locate?";
-var apiURLStubNominations = "nominations?";
-var apiURLStubUpcomingBills = "upcoming_bills?";
-var apiURLStubVotes = "votes?";
-var apiURLStubAllPerPage = "per_page=all";
-
-var initialAPICall = apiURLStub1 + apiURLStubLegislators + apiURLStubAllPerPage + apiURLStubAPIKey;
-
-var apiCallCommittees = apiURLStub1 + apiURLStubLegislators + apiURLStubCommittees + apiURLStubAPIKey;
 
     $.getJSON(apiCallCommittees, function (data) {
       console.log(apiCallCommittees);
-// chamber, committee_id, name, parent_committee_id, subcommittee
+
         var jsonData = data.results;
         $.each(jsonData, function(){
            $("ul").append("<li>Name: "+this['name']+"</li><li>Chamber: "+this['chamber']+"</li><li>Committee ID: "+this['committee_id']+"</li><li>Parent Committee ID: "+this['parent_committee_id']+"</li><li>Subcommittee: "+this['subcommittee']+"</li>");
