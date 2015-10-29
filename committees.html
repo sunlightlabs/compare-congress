@@ -11,6 +11,12 @@
     <h1>Committees - Compare Congress</h1>
     <ul>
     </ul>
+    <table>
+      <thead><tr><th>Name</th><th>Chamber</th><th>Committee ID</th><th>Parent Committee</th><th>Subcommittee</th></tr></thead>
+      <tbody>
+        
+      </tbody>
+    </table>
   </body>
 
 
@@ -21,8 +27,11 @@ $(document).ready(function () {
       console.log(apiCallCommittees);
 
         var jsonData = data.results;
+        // var jsonDataTableTop = "<table><thead><tr><th>Name</th><th>Chamber</th><th>Committee ID</th><th>Parent Committee</th><th>Subcommittee</th></tr></thead><tbody>";
+        // var jsonDataTableBottom = "</tbody></table>";
         $.each(jsonData, function(){
-           $("ul").append("<li>Name: "+this['name']+"</li><li>Chamber: "+this['chamber']+"</li><li>Committee ID: "+this['committee_id']+"</li><li>Parent Committee ID: "+this['parent_committee_id']+"</li><li>Subcommittee: "+this['subcommittee']+"</li>");
+           // $("ul").append("<li>Name: "+this['name']+"</li><li>Chamber: "+this['chamber']+"</li><li>Committee ID: "+this['committee_id']+"</li><li>Parent Committee ID: "+this['parent_committee_id']+"</li><li>Subcommittee: "+this['subcommittee']+"</li>");
+           $("tbody").append("<tr><td>"+this['name']+"</td><td>"+this['chamber']+"</td><td>"+this['committee_id']+"</td><td>"+this['parent_committee_id']+"</td><td>"+this['subcommittee']+"</td></tr>");
      });
     });
 
