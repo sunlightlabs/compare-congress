@@ -1,6 +1,3 @@
-$(document).ready(function () {
-    $("select[name='person2']").hide();
-
 /*
 congress.api.sunlightfoundation.com/amendments?apikey=ebbe9f8409134303aab01479e8f1a42f
 congress.api.sunlightfoundation.com/bills?apikey=ebbe9f8409134303aab01479e8f1a42f
@@ -18,11 +15,14 @@ congress.api.sunlightfoundation.com/nominations?apikey=ebbe9f8409134303aab01479e
 congress.api.sunlightfoundation.com/votes?apikey=ebbe9f8409134303aab01479e8f1a42f
 congress.api.sunlightfoundation.com/upcoming_bills?apikey=ebbe9f8409134303aab01479e8f1a42f
 */
+
+
+
+$(document).ready(function () {
+    $("select[name='person2']").hide();
+
 var apiURLStub1 = 'https://congress.api.sunlightfoundation.com/';
-
 var apiURLStubAPIKey = '&apikey=ebbe9f8409134303aab01479e8f1a42f';
-
-
 
 var apiURLStubAmendments = "amendments?";
 var apiURLStubBills = "bills?";
