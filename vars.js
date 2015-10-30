@@ -59,6 +59,10 @@ var initialAPICall = apiURLStub1 + apiURLStubLegislators + apiURLStubAllPerPage 
 // chamber, committee_id, name, parent_committee_id, subcommittee
 var apiCallCommittees = apiURLStub1 + apiURLStubCommittees + apiURLStubAllPerPage + apiURLStubAPIKey;
 
+// congress.api.sunlightfoundation.com/hearings?dc=false&apikey=ebbe9f8409134303aab01479e8f1a42f
+// query, committee_id, congress, chamber, dc, bill_ids, hearing_type
+var apiCallHearings = apiURLStub1 + apiURLStubHearingsDCFalse + apiURLStubAllPerPage + apiURLStubAPIKey;
+
 // legislative_day, bill_id, range, congress, chamber, source_type
 var apiCallUpcomingBills = apiURLStub1 + apiURLStubUpcomingBills+ apiURLStubAllPerPage + apiURLStubAPIKey;
 
