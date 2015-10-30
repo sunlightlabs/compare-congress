@@ -24,7 +24,7 @@
 $(document).ready(function () {
 
     $.getJSON(apiCallUpcomingBills, function (data) {
-      // console.log(apiCallUpcomingBills);
+      console.log(apiCallUpcomingBills);
         var jsonData = data.results;
         $.each(jsonData, function(){
            $("tbody").append("<tr><td>"+this['legislative_day']+"</td><td>"+this['bill_id']+"</td><td>"+this['range']+"</td><td>"+this['congress']+"</td><td>"+this['chamber']+"</td><td>"+this['source_type']+"</td></tr>");
