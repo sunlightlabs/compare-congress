@@ -9,77 +9,59 @@
   </head>
   <body>
     <h1>Hearings - Compare Congress</h1>
-    <ul>
-    </ul>
+    <h2>Hearings = False</h2>
     <table>
       <thead><tr><th>Query</th><th>Committee ID</th><th>Congress</th><th>Chamber</th><th>DC</th><th>Bill IDs</th><th>Hearing Type</th></tr></thead>
-      <tbody>
+      <tbody class="hearings-false">
         
       </tbody>
     </table>
-  </body>
+    <h2>Hearings = True</h2>
+    <table>
+      <thead><tr><th>Query</th><th>Committee ID</th><th>Congress</th><th>Chamber</th><th>DC</th><th>Bill IDs</th><th>Hearing Type</th></tr></thead>
+      <tbody class="hearings-true">
+        
+      </tbody>
+    </table>
 
 
+    <h2>Hearings = Null</h2>
+    <table>
+      <thead><tr><th>Query</th><th>Committee ID</th><th>Congress</th><th>Chamber</th><th>DC</th><th>Bill IDs</th><th>Hearing Type</th></tr></thead>
+      <tbody class="hearings-null">
+        
+      </tbody>
+    </table>
+    </body>
 <script>
 $(document).ready(function () {
 
-    $.getJSON(apiCallHearings, function (data) {
-      console.log(apiCallHearings);
+    $.getJSON(apiCallHearingsFalse, function (data) {
+      console.log(apiCallHearingsFalse);
         var jsonData = data.results;
         $.each(jsonData, function(){
-           $("tbody").append("<tr><td>"+this['query']+"</td><td>"+this['committee_id']+"</td><td>"+this['congress']+"</td><td>"+this['chamber']+"</td><td>"+this['dc']+"</td><td>"+this['bill_ids']+"</td><td>"+this['hearing_type']+"</td></tr>");
+           $("tbody.hearings-false").append("<tr><td>"+this['query']+"</td><td>"+this['committee_id']+"</td><td>"+this['congress']+"</td><td>"+this['chamber']+"</td><td>"+this['dc']+"</td><td>"+this['bill_ids']+"</td><td>"+this['hearing_type']+"</td></tr>");
          });
     });
 
-// show user what they have selected
-
-
-var personSelectEvent = function() {
-  var str = "";
-  $(this).find('option:selected').each(function(i,v){
-    str += $(this).text() + " ";
-  });
-  $('#'+$(this).attr('id').replace('person', 'selected')).text( str );
-}
-$('.person-selector').change(personSelectEvent);
-
-
-
-function displayVal1() {
-  var selectedVal1 = $("#person1").val();
-  $("#selected-val-1").html( "<b>Selected Option 1 val=\"\":</b> " + selectedVal1 );
-  var apiURLStubMemberID1 = 'member_ids=' + selectedVal1;
-  var apiURLCommittee1 = apiURLStub1 + apiURLStubCommittees + apiURLStubMemberID1 + apiURLStubAPIKey;
- // console.log(apiURLCommittee1);
-
-    $.getJSON(apiURLCommittee1, function (data) {
-
+        $.getJSON(apiCallHearingsTrue, function (data) {
+      console.log(apiCallHearingsTrue);
+        var jsonData = data.results;
+        $.each(jsonData, function(){
+           $("tbody.hearings-true").append("<tr><td>"+this['query']+"</td><td>"+this['committee_id']+"</td><td>"+this['congress']+"</td><td>"+this['chamber']+"</td><td>"+this['dc']+"</td><td>"+this['bill_ids']+"</td><td>"+this['hearing_type']+"</td></tr>");
+         });
     });
 
 
+    $.getJSON(apiCallHearingsNull, function (data) {
+      console.log(apiCallHearingsNull);
+        var jsonData = data.results;
+        $.each(jsonData, function(){
+           $("tbody.hearings-null").append("<tr><td>"+this['query']+"</td><td>"+this['committee_id']+"</td><td>"+this['congress']+"</td><td>"+this['chamber']+"</td><td>"+this['dc']+"</td><td>"+this['bill_ids']+"</td><td>"+this['hearing_type']+"</td></tr>");
+         });
+    });
 
 
-}
-
-
-
-// don't need this at some point
-$("#person1").change(displayVal1);
-displayVal1();
-
-
-
-function displayVal2() {
-  var selectedVal2 = $("#person2").val();
-  $("#selected-val-2").html( "<b>Selected Option 2 val=\"\":</b> " + selectedVal2 );
-  var apiURLStubMemberID2 = 'member_ids=' + selectedVal2;
-  var apiURLCommittee2 = apiURLStub1 + apiURLStubCommittees + apiURLStubMemberID2 + apiURLStubAPIKey;
-  //console.log(apiURLCommittee2);
-}
-
-// don't need this at some point
-$("#person2").change(displayVal2);
-displayVal2();
 
 });
 </script>
