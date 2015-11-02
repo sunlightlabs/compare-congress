@@ -43,6 +43,8 @@ var apiURLStubBillsSearch = "bills/search?";
 var apiURLStubCommittees = 'committees?';
 var apiURLStubDistrictsLocate = "districts/locate?";
 var apiURLStubFloorUpdates = "floor_updates?";
+var apiURLStubFloorUpdatesChamberHouse = "chamber=house";
+var apiURLStubFloorUpdatesChamberSenate = "chamber=senate";
 var apiURLStubHearingsDCFalse = "hearings?dc=false";
 var apiURLStubHearingsDCTrue = "hearings?dc=true";
 var apiURLStubHearingsDCNull = "hearings?dc=null";
@@ -55,9 +57,19 @@ var apiURLStubAllPerPage = "per_page=all";
 
 var initialAPICall = apiURLStub1 + apiURLStubLegislators + apiURLStubAllPerPage + apiURLStubAPIKey;
 
+// 
+var apiCallBills = apiURLStub1 + apiURLStubBills + apiURLStubAllPerPage + apiURLStubAPIKey;
 
 // chamber, committee_id, name, parent_committee_id, subcommittee
 var apiCallCommittees = apiURLStub1 + apiURLStubCommittees + apiURLStubAllPerPage + apiURLStubAPIKey;
+
+// congress.api.sunlightfoundation.com/floor_updates?apikey=ebbe9f8409134303aab01479e8f1a42f
+// congress.api.sunlightfoundation.com/floor_updates?chamber=house&apikey=ebbe9f8409134303aab01479e8f1a42f
+// congress.api.sunlightfoundation.com/floor_updates?chamber=senate&apikey=ebbe9f8409134303aab01479e8f1a42f
+var apiCallFloorUpdates = apiURLStub1 + apiURLStubFloorUpdates + apiURLStubAllPerPage + apiURLStubAPIKey;
+var apiCallFloorUpdatesHouse = apiURLStub1 + apiURLStubFloorUpdates + apiURLStubFloorUpdatesChamberHouse + apiURLStubAllPerPage + apiURLStubAPIKey;
+var apiCallFloorUpdatesSenate = apiURLStub1 + apiURLStubFloorUpdates + apiURLStubFloorUpdatesChamberSenate + apiURLStubAllPerPage + apiURLStubAPIKey;
+
 
 // query, committee_id, congress, chamber, dc, bill_ids, hearing_type
 var apiCallHearingsFalse = apiURLStub1 + apiURLStubHearingsDCFalse + apiURLStubAPIKey;

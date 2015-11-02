@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bills - Compare Congress</title>
+    <link rel="stylesheet" href="compare-congress.css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="vars.js"></script>
+    <!-- <script src="compare-congress.jquery.js"></script> -->
+  </head>
+  <body>
+    <h1>Bills - Compare Congress</h1>
+    <ul>
+    </ul>
+    <table>
+      <thead><tr><th>Query</th><th>Bill ID</th><th>Bill Type</th><th>Number</th><th>Congress</th><th>Chamber</th><th>Keywords</th><th>history.house_passage_result</th>
+        <th>history.senate_cloture_result</th><th>history.senate_passage_result</th><th>history.vetoed</th><th>history.house_override_result</th>
+        <th>history.senate_override_result</th><th>history.awaiting_signature</th><th>history.enacted</th><th>sponsor_id</th><th>cosponsor_ids</th><th>withdrawn_cosponsor_ids</th><th>committee_ids</th></tr></thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </body>
+
+
+<script>
+$(document).ready(function () {
+
+    $.getJSON(apiCallBills, function (data) {
+      console.log(apiCallBills);
+
+        var jsonData = data.results;
+        // var jsonDataTableTop = "<table><thead><tr><th>Name</th><th>Chamber</th><th>Committee ID</th><th>Parent Committee</th><th>Subcommittee</th></tr></thead><tbody>";
+        // var jsonDataTableBottom = "</tbody></table>";
+        $.each(jsonData, function(){
+           // $("ul").append("<li>Name: "+this['name']+"</li><li>Chamber: "+this['chamber']+"</li><li>Committee ID: "+this['committee_id']+"</li><li>Parent Committee ID: "+this['parent_committee_id']+"</li><li>Subcommittee: "+this['subcommittee']+"</li>");
+           $("tbody").append("<tr><td>"+this['query']+"</td><td>"+this['bill_id']+"</td><td>"+this['bill_type']+"</td><td>"+this['number']+"</td><td>"+this['congress']+"</td><td>"+this['chamber']+"</td><td>"+this['keywords']+"</td><td>"+this['history.house_passage_result']+"</td><td>"+this['history.senate_cloture_result']+"</td><td>"+this['history.senate_passage_result']+"</td><td>"+this['history.vetoed']+"</td><td>"+this['history.house_override_result']+"</td><td>"+this['history.awaiting_signature']+"</td><td>"+this['history.enacted']+"</td><td>"+this['sponsor_id']+"</td><td>"+this['cosponsor_ids']+"</td><td>"+this['withdrawn_cosponsor_ids']+"</td><td>"+this['committee_ids']+"</td></tr>");
+     });
+    });
+
+});
+</script>
+</html>
