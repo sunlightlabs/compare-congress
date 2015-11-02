@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Floor Updates - Compare Congress</title>
+    <link rel="stylesheet" type="text/css" href="compare-congress.css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="vars.js"></script>
+    <!-- <script src="compare-congress.jquery.js"></script> -->
+  </head>
+  <body>
+    <h1>Floor Updates - Compare Congress</h1>
+    <table>
+      <thead><tr><th>Query</th><th>Chamber</th><th>Congress</th><th>Legislative Day</th><th>Year</th><th>Bill IDs</th><th>Roll IDs</th><th>Legislator IDs</th></tr></thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+    </body>
+<script>
+$(document).ready(function () {
+
+    $.getJSON(apiCallFloorUpdates, function (data) {
+      console.log(apiCallFloorUpdates);
+        var jsonData = data.results;
+        $.each(jsonData, function(){
+           $("tbody").append("<tr><td>"+this['query']+"</td><td>"+this['chamber']+"</td><td>"+this['congress']+"</td><td>"+this['legislative_day']+"</td><td>"+this['year']+"</td><td>"+this['bill_ids']+"</td><td>"+this['roll_ids']+"</td><td>"+this['legislator_ids']+"</td></tr>");
+         });
+    });
+
+});
+</script>
+</html>
