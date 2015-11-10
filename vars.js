@@ -76,6 +76,14 @@ var apiCallHearingsFalse = apiURLStub1 + apiURLStubHearingsDCFalse + apiURLStubA
 var apiCallHearingsTrue = apiURLStub1 + apiURLStubHearingsDCTrue + apiURLStubAPIKey;
 var apiCallHearingsNull = apiURLStub1 + apiURLStubHearingsDCNull + apiURLStubAPIKey;
 
+// congress.api.sunlightfoundation.com/legislators?apikey=ebbe9f8409134303aab01479e8f1a42f
+var apiCallLegislators = apiURLStub1 + apiURLStubLegislators + apiURLStubAllPerPage + apiURLStubAPIKey;
+
+//
+var apiCallLegislatorsLocate = "";
+
+
+
 // legislative_day, bill_id, range, congress, chamber, source_type
 var apiCallUpcomingBills = apiURLStub1 + apiURLStubUpcomingBills+ apiURLStubAllPerPage + apiURLStubAPIKey;
 

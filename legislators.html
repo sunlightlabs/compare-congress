@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Legislators- Compare Congress</title>
+    <link rel="stylesheet" href="compare-congress.css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="vars.js"></script>
+    <!-- <script src="compare-congress.jquery.js"></script> -->
+  </head>
+  <body>
+    <h1>Legislators - Compare Congress</h1>
+    <ul>
+    </ul>
+    <table>
+      <thead><tr><th>Query</th><th>Title</th><th>Chamber</th><th>First Name</th><th>Nickname</th><th>Middle Name</th><th>Last Name</th><th>Name Suffix</th>
+        <th>Party</th><th>State</th><th>State Name</th><th>District</th><th>In Office</th><th>Gender</th><th>Birthdate</th><th>Term Start</th><th>Term End</th>
+        <th>Senate Class</th><th>Bioguide ID</th><th>Thomas ID</th><th>LIS ID</th><th>VoteSmart ID</th><th>FEC IDs</th><th>Govtrack ID</th><th>CRP ID</th></tr></thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </body>
+
+
+<script>
+$(document).ready(function () {
+
+    $.getJSON(apiCallLegislators, function (data) {
+      console.log(apiCallLegislators);
+
+        var jsonData = data.results;
+        // var jsonDataTableTop = "<table><thead><tr><th>Name</th><th>Chamber</th><th>Committee ID</th><th>Parent Committee</th><th>Subcommittee</th></tr></thead><tbody>";
+        // var jsonDataTableBottom = "</tbody></table>";
+        $.each(jsonData, function(){
+           // $("ul").append("<li>Name: "+this['name']+"</li><li>Chamber: "+this['chamber']+"</li><li>Committee ID: "+this['committee_id']+"</li><li>Parent Committee ID: "+this['parent_committee_id']+"</li><li>Subcommittee: "+this['subcommittee']+"</li>");
+           $("tbody").append("<tr><td>"+this['query']+"</td><td>"+this['title']+"</td><td>"+this['chamber']+"</td><td>"+this['first_name']+"</td><td>"+this['nickname']+"</td><td>"+this['middle_name']+"</td><td>"+this['last_name']+"</td><td>"+this['name_suffix']+"</td><td>"+this['party']+"</td><td>"+this['state']+"</td><td>"+this['state_name']+"</td><td>"+this['district']+"</td><td>"+this['in_office']+"</td><td>"+this['gender']+"</td><td>"+this['birthdate']+"</td><td>"+this['term_start']+"</td><td>"+this['term_end']+"</td><td>"+this['senate_class']+"</td><td>"+this['bioguide_id']+"</td><td>"+this['thomas_id']+"</td><td>"+this['lis_id']+"</td><td>"+this['votesmart_id']+"</td><td>"+this['fec_ids']+"</td><td>"+this['govtrack_id']+"</td><td>"+this['crp_id']+"</td></tr>");
+     });
+    });
+
+});
+</script>
+</html>
