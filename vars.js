@@ -54,6 +54,7 @@ var apiURLStubNominations = "nominations?";
 var apiURLStubUpcomingBills = "upcoming_bills?";
 var apiURLStubVotes = "votes?";
 var apiURLStubAllPerPage = "per_page=all";
+var apiURLStubZip = "zip=";
 
 var initialAPICall = apiURLStub1 + apiURLStubLegislators + apiURLStubAllPerPage + apiURLStubAPIKey;
 
@@ -79,8 +80,8 @@ var apiCallHearingsNull = apiURLStub1 + apiURLStubHearingsDCNull + apiURLStubAPI
 // congress.api.sunlightfoundation.com/legislators?apikey=ebbe9f8409134303aab01479e8f1a42f
 var apiCallLegislators = apiURLStub1 + apiURLStubLegislators + apiURLStubAllPerPage + apiURLStubAPIKey;
 
-//
-var apiCallLegislatorsLocate = "";
+// congress.api.sunlightfoundation.com/legislators/locate?zip=22205&apikey=ebbe9f8409134303aab01479e8f1a42f
+// var apiCallLegislatorsLocateByZip = apiURLStub1 + apiURLStubLegislatorsLocate + apiURLStubZip + apiURLStubZipSelected + apiURLStubAPIKey;
 
 
 
